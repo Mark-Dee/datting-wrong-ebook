@@ -1,0 +1,153 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    function isAdmin() {
+      return isAuthenticated() && 
+        (
+          (request.auth.token.email != null && (
+            request.auth.token.email == 'alvisnjagi@gmail.com' ||
+            request.auth.token.email == 'wanyekigerison@gmail.com' ||
+            request.auth.token.email == 'ochiengmark2908@gmail.com'
+          )) ||
+          (exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
+           get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin')
+        );
+    }
+
+    // Users Collection
+    match /users/{userId} {
+      allow read: if isOwner(userId) || isAdmin();
+      // A new profile may NEVER self-assign a privileged role (prevents self-promotion to admin).
+      allow create: if isAuthenticated() && request.auth.uid == userId &&
+        (!('role' in request.resource.data) || request.resource.data.role == 'reader');
+      // Client can update profile fields; role change restricted to admin
+      allow update: if (isOwner(userId) && (!request.resource.data.diff(resource.data).affectedKeys().hasAny(['role']))) || isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    // Payments Collection
+    match /payments/{paymentId} {
+      // User can read their own payment records, Admin can read all
+      allow read: if isAuthenticated() && (
+        (resource != null && (
+          resource.data.uid == request.auth.uid || 
+          resource.data.email == request.auth.token.email
+        )) ||
+        isAdmin()
+      );
+      // Payments are created and verified ONLY by the trusted backend (Admin SDK bypasses rules).
+      allow create: if isAdmin();
+      // Only backend or admin can verify, complete, or update payment statuses
+      allow update, delete: if isAdmin();
+    }
+
+    // Payment Requests Collection (M-PESA Pochi pasted SMS verification requests)
+    match /paymentRequests/{requestId} {
+      allow read: if isAuthenticated() && (
+        (resource != null && (
+          resource.data.uid == request.auth.uid || 
+          resource.data.email == request.auth.token.email
+        )) ||
+        isAdmin()
+      );
+      // User creates pending verification request with their attached Google UID
+      allow create: if isAuthenticated() &&
+        request.resource.data.uid == request.auth.uid &&
+        request.resource.data.status == 'PENDING_REVIEW';
+      // Only administrators can approve or reject payment requests
+      allow update, delete: if isAdmin();
+    }
+
+    // Book Entitlements Collection (indexed by uid_bookId)
+    match /bookEntitlements/{entitlementDocId} {
+      allow read: if isAuthenticated() && (
+        entitlementDocId.matches('^' + request.auth.uid + '.*') ||
+        (resource != null && (
+          resource.data.uid == request.auth.uid ||
+          (resource.data.userId != null && resource.data.userId == request.auth.uid) ||
+          (resource.data.email != null && resource.data.email == request.auth.token.email)
+        )) ||
+        isAdmin()
+      );
+      allow write: if isAdmin();
+    }
+
+    // Entitlements Collection (client sync & query by userId/email)
+    match /entitlements/{entitlementId} {
+      allow read: if isAuthenticated() && (
+        (resource != null && (
+          resource.data.userId == request.auth.uid ||
+          resource.data.uid == request.auth.uid ||
+          (resource.data.email != null && resource.data.email == request.auth.token.email)
+        )) ||
+        isAdmin()
+      );
+      // Entitlements are granted by the backend / administrators only — clients can never self-grant.
+      allow create, update, delete: if isAdmin();
+    }
+
+    // Used Transactions (Transaction uniqueness protection)
+    match /usedTransactions/{transactionCode} {
+      allow read, write: if isAdmin();
+    }
+
+    // Devices Collection (Section 29: Authorized Offline Devices)
+    match /devices/{deviceId} {
+      allow read: if isAuthenticated() && (
+        (resource != null && resource.data.userId == request.auth.uid) || 
+        isAdmin()
+      );
+      allow create: if isAuthenticated() && 
+        request.resource.data.userId == request.auth.uid;
+      allow update: if isAuthenticated() && (
+        (resource != null && resource.data.userId == request.auth.uid) || 
+        isAdmin()
+      );
+      allow delete: if isAuthenticated() && (
+        (resource != null && resource.data.userId == request.auth.uid) || 
+        isAdmin()
+      );
+    }
+
+    // Offline Licenses Collection (Cryptographically signed offline leases)
+    match /offlineLicenses/{licenseId} {
+      allow read: if isAuthenticated() && (
+        (resource != null && resource.data.userId == request.auth.uid) || 
+        isAdmin()
+      );
+      allow write: if isAdmin();
+    }
+
+    // Config Collection (Book price, Paybill, Merchant details)
+    match /config/{configId} {
+      allow read: if true; // Publicly readable for dynamic pricing display
+      allow write: if isAdmin();
+    }
+
+    // Admin Logs (Audit logs)
+    match /adminAlertLogs/{logId} {
+      allow read, write: if isAdmin();
+    }
+
+    match /customerEmailLogs/{logId} {
+      allow read, write: if isAdmin();
+    }
+
+    // Real-Time Admin Action Broadcast & Multi-Device Sync Stream
+    match /adminActions/{actionId} {
+      allow read, write: if isAdmin();
+    }
+
+    // Collections named srv_* (logs, tickets, settings, devices, progress) have NO rule on purpose:
+    // Firestore denies all client access by default; only the backend (Admin SDK) can use them.
+  }
+}

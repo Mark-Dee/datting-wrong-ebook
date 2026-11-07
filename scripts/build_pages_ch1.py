@@ -1,0 +1,420 @@
+import json
+
+def write_ts_file(filepath, var_name, pages):
+    code = f"import {{ BookPage }} from '../../types.ts';\n\nexport const {var_name}: BookPage[] = {json.dumps(pages, ensure_ascii=False, indent=2)};\n"
+    with open(filepath, 'w', encoding='utf-8') as f:
+        f.write(code)
+    print(f"Wrote {len(pages)} pages to {filepath}")
+
+# CHAPTER ONE: Pages 8 to 26 (Folio 1 to 19)
+pages_ch1 = [
+    {
+        "pageNumber": 8,
+        "pdfPageNumber": 8,
+        "folioLabel": "1",
+        "totalNumberedPages": 122,
+        "sectionId": "chapter-one",
+        "type": "chapter-start",
+        "chapterNumberLabel": "Chapter One",
+        "chapterTitle": "The Weight of Hesitation & The Phantom Rival",
+        "runningHeader": "CHAPTER ONE · THE WEIGHT OF HESITATION & THE PHANTOM RIVAL",
+        "content": {
+            "paragraphs": [
+                "**CHAPTER ONE**",
+                "The scent of damp tarmac after an afternoon shower had a cruel way of bending time, collapsing seven long years into the span of a single caught breath. Sitting in the dimly lit corner of the highway café, watching the ceiling fan slice endlessly through the thick, humid air, Gerishon Wanyeki stared into the dark surface of his untouched black coffee. The mirror like liquid reflected a man who had mastered the art of impassive silence, a man whose tailored shirt and quiet authority masked a vault of old, unhealed wounds. He had convinced himself that the past was a dead country, mapped only by the faded scars on his heart and the cold wisdom of maturity. Yet, all it took was the sharp, synthetic chime of a passing matatu's horn outside to pull him backward through the fog of memory, straight into the dust-choked courtyard of his youth.",
+                "He was twenty-four now, an analytical mind trained to look for patterns and systemic breakdowns but back then he had been an unreliable interpreter of his own emotional architecture. He remembered how he used to tell himself that Gathoni had simply been heartless, a calculated betrayer who had traded his quiet devotion for the flashier promises of an older neighborhood boy. But the intervening years had stripped away the convenient armor of self-pity, forcing him to confront a far more terrifying truth: tragedy rarely arrives in a single, sudden wave. It leaks through the tiny fractures of unsaid words, through the devastating asymmetry of bad timing and through the tragic irony of two people standing on the exact same spot at entirely different emotional seasons of their lives.",
+                "Outwardly, when his university colleagues asked him why he navigated life with such deliberate, unyielding detachment, he would offer a faint, polite smile and say, “I just value clarity.” Internally, however, a dark, mocking voice would immediately scream the truth he kept buried beneath layers of pride: You are terrified of being the last person to know you are being abandoned. He had become a master of emotional camouflage, speaking in"
+            ]
+        }
+    },
+    {
+        "pageNumber": 9,
+        "pdfPageNumber": 9,
+        "folioLabel": "2",
+        "totalNumberedPages": 122,
+        "sectionId": "chapter-one",
+        "type": "chapter-body",
+        "chapterNumberLabel": "Chapter One",
+        "chapterTitle": "The Weight of Hesitation & The Phantom Rival",
+        "runningHeader": "CHAPTER ONE · THE WEIGHT OF HESITATION & THE PHANTOM RIVAL",
+        "content": {
+            "paragraphs": [
+                "measured, diplomatic tones while his mind frantically catalogued every shift in a room, every turned down phone screen, and every subtle withdrawal of affection. He lived in the shadow of a story he had misunderstood while writing it, forever haunted by the terrifying realization that he had played a starring role in his own undoing.",
+                "***",
+                "There are mornings that begin like every other morning, yet somewhere between the dusty turnpike outside the school gate and the harsh brilliance of the afternoon sun, they quietly divide your life into a **before** and an **after**.",
+                "I did not know that when I stepped off the matatu on that humid Monday morning. I only knew that the exhaust fumes of the morning traffic were thicker than usual, that the day school compound was already swarming with uniforms and that I was running late for a club meeting I had sworn not to miss. Unlike boarding institutions where students lived wrapped in a sheltered bubble, our day school was a permeable fortress. Every morning, we dragged the dust, the noise, the unresolved home arguments and the raw temptations of the surrounding town through the iron gates. We were in our final year, old enough to believe we understood the world, yet foolish enough to allow the loud, careless opinions of others to drown out our own quiet convictions.",
+                "I was the chairperson of our club, and beside me stood my deputy chairperson, **Wambui Joan Gathoni**.",
+                "We had worked together for months and there was a seamless, comforting cadence to our partnership that made leadership feel less like a burden and more like a shared venture. She was the sort of person who could notice an overlooked detail in an event program and gently point it out without ever making you feel inept. As we navigated the chaotic courtyard toward the meeting room, Gathoni was detailing an issue she had observed among our"
+            ]
+        }
+    },
+    {
+        "pageNumber": 10,
+        "pdfPageNumber": 10,
+        "folioLabel": "3",
+        "totalNumberedPages": 122,
+        "sectionId": "chapter-one",
+        "type": "chapter-body",
+        "chapterNumberLabel": "Chapter One",
+        "chapterTitle": "The Weight of Hesitation & The Phantom Rival",
+        "runningHeader": "CHAPTER ONE · THE WEIGHT OF HESITATION & THE PHANTOM RIVAL",
+        "content": {
+            "paragraphs": [
+                "junior members. I listened, chuckled at her understated wit and promised that we would address it before the main assembly.",
+                "It was an ordinary conversation between two students carrying an ordinary responsibility. If someone had told me then that the girl walking beside me would become the foundational tragedy of a story I would one day titled Dating Wrong, I would have laughed off the absurdity. I was not seeking a girlfriend. I was not bracing for heartbreak. I was simply walking beside my deputy, unaware that the most catastrophic errors of our lives rarely sound an alarm when they take root.",
+                "Gathoni and I had forged a formidable team because ego never found a seat at our table. I was the chairperson, but I never treated the desk as a throne; she was the deputy, but she never viewed her position as a platform for quiet rebellion. When an event demanded hours of organizing, we split the burden. When members grew unruly, we stood as a united front. I remember the subtle nuances more than the grand gestures: the deliberate way she pulled me aside to offer counsel, the unrestrained warmth of her laugh when an overly tense committee meeting broke into absurdity and the effortless grace with which she transformed my chaotic ideas into structured plans. We were comfortable because there was no performance. There was no need to impress, no need to posture, no need to pretend. She was Gathoni, my deputy; I was Gerishon Wanyeki, her chairperson. We had struck a perfect, delicate equilibrium.",
+                "Perhaps that was precisely why the initial comments from my inner circle did not bother me. They saw a young man and a young woman sharing space, time and mutual respect, and they immediately demanded a different narrative. They saw romantic opportunity where I saw professional duty. They saw a conquest where I saw a working alliance. And, as I would come to learn with agonizing clarity, when people repeatedly plant a false narrative in your mind, even the most barren ground eventually yields a poisonous crop."
+            ]
+        }
+    },
+    {
+        "pageNumber": 11,
+        "pdfPageNumber": 11,
+        "folioLabel": "4",
+        "totalNumberedPages": 122,
+        "sectionId": "chapter-one",
+        "type": "chapter-body",
+        "chapterNumberLabel": "Chapter One",
+        "chapterTitle": "The Weight of Hesitation & The Phantom Rival",
+        "runningHeader": "CHAPTER ONE · THE WEIGHT OF HESITATION & THE PHANTOM RIVAL",
+        "content": {
+            "paragraphs": [
+                "“Chairman,” one of my closest friends, Maina, smirked one afternoon as we leaned against the corridor railing watching the lower-class students disperse, “how long do you intend to play this pious game?”",
+                "I adjusted my school bag. “What game?”",
+                "He laughed, waving over two other boys from our class. “You and Gathoni. Don't act blind.”",
+                "“She is my deputy, Kevin. We have an event to run next month.”",
+                "“That is precisely your tragedy,” another joined in, leaning against the doorframe with a condescending smile. “You have a stunning girl walking beside you every single afternoon to the main gate, and you treat her as if she were a visiting inspector.”",
+                "The group erupted in chorus. I laughed along, masking my discomfort behind a display of easy dismissiveness. It was vastly easier to join the laughter than to articulate a truth they were fundamentally unequipped to understand: that I had never viewed Gathoni through the lens of romance.",
+                "Yet, the comments did not cease. They mutated. They multiplied. What began as harmless banter soon hardened into a persistent, daily audit of my manhood. Every club meeting was shadowed by knowing winks. Every time Gathoni handed me a folder or walked with me toward the gate at the end of the day, a chorus of hushed commentary followed in our wake. They insisted I was throwing away an effortless victory. They claimed I was the only boy in our year capable of spending hours with an attractive girl while remaining entirely oblivious to her value.",
+                "At first, their words were mere background noise. Then, they became a relentless drumbeat. Every afternoon as the final bell rang and we prepared to walk out into the town, the chorus resumed. I began hearing her name differently because my peers had forcibly rewritten its context. Before,"
+            ]
+        }
+    },
+    {
+        "pageNumber": 12,
+        "pdfPageNumber": 12,
+        "folioLabel": "5",
+        "totalNumberedPages": 122,
+        "sectionId": "chapter-one",
+        "type": "chapter-body",
+        "chapterNumberLabel": "Chapter One",
+        "chapterTitle": "The Weight of Hesitation & The Phantom Rival",
+        "runningHeader": "CHAPTER ONE · THE WEIGHT OF HESITATION & THE PHANTOM RIVAL",
+        "content": {
+            "paragraphs": [
+                "“Gathoni” signified competence, dependability, and shared duty. Now, whenever her name crossed their lips, it carried a sharp, unspoken challenge: *What is wrong with you? Are you afraid?*",
+                "I began to question my own judgment. In our final year of day school, surrounded by the rough edges of town life, there was an unspoken pressure to project an image of absolute maturity and romantic experience. The truth, however, was far more fragile. We were children playing dress-up in adult confidence. We mistook external approval for genuine desire, and foolishly equated conformity with strength. My friends knew precisely which levers to pull. They knew that if they repeatedly framed my respect for Gathoni as cowardice, I would eventually do something reckless simply to strip them of their weapon.",
+                "The pressure escalated from mere teasing to overt blackmail. During an informal gathering behind the science block, Kevin made it explicit. They threatened to sabotage the club's upcoming initiative by withholding their participation and convincing their social circles to boycott our events. They joked about leaving me chairperson over an empty room, a leader without a constituency.",
+                "I knew their behavior was petty and childish, but the club was my sanctuary, the single achievement I had painstakingly built in that school. I could not bear the thought of my leadership crumbling under the weight of their ridicule. Yet, imperceptibly, the conflict ceased to be about the club altogether. I found myself trapped between the preservation of my dignity and the terror of being ostracized. They called me weak. They implied I lacked resolve. They insisted a capable man would have made his claim weeks ago.",
+                "I walked home through the bustling town streets with those bitter accusations echoing in my skull. They followed me into my room, sat beside me as I attempted my homework, and greeted me at the school gates the following morning. I began asking myself questions that had no business existing in"
+            ]
+        }
+    },
+    {
+        "pageNumber": 13,
+        "pdfPageNumber": 13,
+        "folioLabel": "6",
+        "totalNumberedPages": 122,
+        "sectionId": "chapter-one",
+        "type": "chapter-body",
+        "chapterNumberLabel": "Chapter One",
+        "chapterTitle": "The Weight of Hesitation & The Phantom Rival",
+        "runningHeader": "CHAPTER ONE · THE WEIGHT OF HESITATION & THE PHANTOM RIVAL",
+        "content": {
+            "paragraphs": [
+                "my mind: *What if they see something I am too blind to notice? What if I am wasting a chance? What if she is quietly waiting for me to act?*",
+                "It was a fatal, quiet shift. The question was no longer, do I truly hold romantic affection for this girl? It had insidiously become, *how do I prove to these people that I am not afraid?* There is a vast, dangerous chasm between those two motivations. One is born of genuine emotional resonance; the other is birthed by the corrupting weight of peer pressure.",
+                "And so, I began to look at Gathoni through borrowed eyes.",
+                "The transformation was subtle at first. It did not happen in a single, cinematic stroke, but in small, calculated deviations from my normal behavior. I began paying deliberate attention to the curve of her smile when she agreed with my proposals. I noted the neatness of her uniform, the soft tone of her voice when the classroom grew chaotic, and the lingering way she held my gaze when we finalized the club minutes. I convinced myself that I was discovering a hidden truth, when in reality, I was merely rationalizing my surrender to the crowd.",
+                "The irony was brutal: the more I tried to prove my friends wrong, the more thoroughly I proved them right by becoming their puppet. I began lingering near her desk after the final bell. I offered to walk her halfway to her bus stop, prolonging our journeys through the busy streets outside the school. The clean, unpretentious friendship that had once anchored my school days began acquiring an uncomfortable, unnatural performance. A shared joke was held a second too long. A simple goodbye became heavy with forced meaning. I was not in love, but I had deliberately set a dangerous momentum into motion.",
+                "The first time I sensed that Gathoni’s perception of me had actually shifted, a wave of cold anxiety washed over me."
+            ]
+        }
+    },
+    {
+        "pageNumber": 14,
+        "pdfPageNumber": 14,
+        "folioLabel": "7",
+        "totalNumberedPages": 122,
+        "sectionId": "chapter-one",
+        "type": "chapter-body",
+        "chapterNumberLabel": "Chapter One",
+        "chapterTitle": "The Weight of Hesitation & The Phantom Rival",
+        "runningHeader": "CHAPTER ONE · THE WEIGHT OF HESITATION & THE PHANTOM RIVAL",
+        "content": {
+            "paragraphs": [
+                "It was a rainy Thursday afternoon. The school day had officially ended, and the compound was emptying rapidly as students rushed to beat the storm and catch the last affordable matatus. Gathoni and I sat in the empty club office, the heavy thrum of rain against the iron roof enveloping us in a false sense of intimacy. We had finished logging the accounts, but neither of us moved toward the door.",
+                "The conversation shifted away from school administration toward personal terrain, our anxieties about the impending national examinations, our uncertain futures beyond these concrete walls, and the claustrophobic expectations of our families.",
+                "She looked at me that afternoon with an unfamiliar, exposed tenderness. The sharp efficiency of the deputy chairperson had melted away, leaving behind a girl who looked at me as though I held the key to her validation. My heart hammered against my ribs, not with the sweet thrill of a blossoming romance, but with the terrifying realization that my performative interest had yielded a real, heavy consequence. My friends’ relentless voices echoed in my mind, drowning out the instinct that warned me to step back. *Don't be a coward, Gerishon. Look at how she looks at you.*",
+                "I leaned into the illusion. I smiled, offered comfortable words of comfort, and allowed her to believe that my heightened attention was the result of a long-suppressed passion.",
+                "Over the next few weeks, our relationship evolved without formal declarations. It was built in the spaces between the final bell and the evening commute. We became an item in the eyes of the school. My friends slapped my back in the corridors, offering their silent, vulgar congratulations. I had won their approval. I had proven my manhood. I was no longer the outcast chairperson who treated girls like teachers.",
+                "To mark this new territory, I began calling her **Sonnie**; a pet name born not from an organic moment of warmth, but created to signify ownership, to"
+            ]
+        }
+    },
+    {
+        "pageNumber": 15,
+        "pdfPageNumber": 15,
+        "folioLabel": "8",
+        "totalNumberedPages": 122,
+        "sectionId": "chapter-one",
+        "type": "chapter-body",
+        "chapterNumberLabel": "Chapter One",
+        "chapterTitle": "The Weight of Hesitation & The Phantom Rival",
+        "runningHeader": "CHAPTER ONE · THE WEIGHT OF HESITATION & THE PHANTOM RIVAL",
+        "content": {
+            "paragraphs": [
+                "display to the rest of the world that I had successfully navigated the game. “Sonnie, let’s leave together.” “Sonnie, wait for me at the gate.” The name rolled off my tongue with an easy, practiced affection and every time she smiled in response, I buried my doubts a little deeper. I had entered the relationship to escape the intolerable pressure of my peers, but as the days rolled on, I allowed myself to believe that a genuine foundation had magically formed beneath us.",
+                "I had made the fatal mistake of assuming that because I had finally committed to the role, the world would reward my performance with a fairy-tale ending. I failed to realize that while I was busy managing my reputation and convincing myself that my manufactured feelings were real, reality was operating on a far more cynical timeline.",
+                "Gathoni had lived through the months of my initial indifference. She had felt the hesitation, the agonizing period where I treated her strictly as a colleague while the entire school gossiped about us. She had watched me laugh off suggestions of our courtship. Perhaps, in her private moments during her long daily commutes home, she had wondered whether I was drawn to her humanity or merely pushed into her arms by the unrelenting commentary of the schoolyard.",
+                "I never asked her. That was my profound failure. I traded depth for performance. I assumed that because we walked side by side through the school gates every evening, holding hands in full view of my cheering friends, we were walking in the same direction.",
+                "Eventually, driven by the absolute necessity to complete the role I was playing, the tragic irony reached its peak during a quiet afternoon beneath the school's shadow. Outwardly, I had leaned in, forced a brave, confident smile, and delivered the long-overdue declaration I had rehearsed for months “I love you, Sonnie. I want us to be together, properly.” Internally, my heart was a deafening drum of terror, desperately begging her to validate the terrifying leap I had just taken off the cliff of my own self-preservation. We"
+            ]
+        }
+    },
+    {
+        "pageNumber": 16,
+        "pdfPageNumber": 16,
+        "folioLabel": "9",
+        "totalNumberedPages": 122,
+        "sectionId": "chapter-one",
+        "type": "chapter-body",
+        "chapterNumberLabel": "Chapter One",
+        "chapterTitle": "The Weight of Hesitation & The Phantom Rival",
+        "runningHeader": "CHAPTER ONE · THE WEIGHT OF HESITATION & THE PHANTOM RIVAL",
+        "content": {
+            "paragraphs": [
+                "were standing beneath the eaves of the library, waiting out a sudden downpour before heading out to the main road. The words felt rehearsed, falling from my lips like lines memorized for an exam. She looked at me, her eyes shimmering with a complex mix of relief and something unreadable, her lips trembling with an agonizing mix of profound regret and suffocating guilt and accepted the declaration.",
+                "For a brief, deceptive season, I believed I had successfully orchestrated my life. I had preserved my leadership, secured the admiration of my peers, and gained the affection of a beautiful girl. But life does not grant immunity to those who build their foundations on lies. It simply allows the structure to rise to a precarious height before demanding a reckoning.",
+                "***",
+                "If I could return to those dust-choked corridors, I would strip away the bravado. I would stop trying to act the part of the triumphant, confident young man. I would sit Gathoni down on an isolated bench away from the noise of the school gate and speak with brutal, absolute honesty. I would ask her what she needed, what she feared and whether the ghosts of my early hesitation still haunted her choices.",
+                "Instead, I chose silence. I chose the comfort of assumptions. I did not see or rather, my desperate heart refused to interpret the subtle signs that the door had already been locked from the inside. When I reached out to take her hand as we navigated the crowded town pavement, her fingers remained limp and unresponsive, yielding to my touch out of pity rather than passion. When I whispered my grand, ambitious plans for our future after graduation, her eyes no longer shimmered with hope; they reflected a profound, exhausting grief. I was finally ready to give her the world, but I was offering it to a ghost who had already packed her bags and departed for another shore, leaving behind a hollow shell wearing her uniform."
+            ]
+        }
+    },
+    {
+        "pageNumber": 17,
+        "pdfPageNumber": 17,
+        "folioLabel": "10",
+        "totalNumberedPages": 122,
+        "sectionId": "chapter-one",
+        "type": "chapter-body",
+        "chapterNumberLabel": "Chapter One",
+        "chapterTitle": "The Weight of Hesitation & The Phantom Rival",
+        "runningHeader": "CHAPTER ONE · THE WEIGHT OF HESITATION & THE PHANTOM RIVAL",
+        "content": {
+            "paragraphs": [
+                "By the second term of our final year, the subtle decay began to manifest. Our conversations, once crisp and effortless, became weighed down by pregnant pauses and unspoken anxieties. When we walked to the matatu stage after school, her presence felt distant, as though her mind had already departed for another place long before her body stepped out of the school uniform.",
+                "Whenever I inquired about her detachment, she would offer a weary, practiced smile and blame the relentless pressure of the upcoming national exams or the fatigue of her daily travel. I accepted her excuses readily. I wanted to accept them. I was so consumed with maintaining the external image of a stable, enviable relationship that I refused to interrogate the cracks splintering the surface.",
+                "It was during those final weeks of deceptive bliss that the name **Njoroge Leon Kimani** began to write itself across the margins of our dying relationship like a poison prescription. **The name that would forever poison my memory.**",
+                "He was not a student at our school. He was an older boy from her neighborhood, a phantom who existed outside the walled ecosystem of our day-school life, operating in the unmonitored world Gathoni returned to every evening after she left my side at the bus stop, filling the void that my long hesitation had left behind. The physical evidence was small, almost invisible to an untrained eye but to a man clinging to a collapsing illusion, every minor gesture was a thunderclap.",
+                "His name first appeared as a recurring notification on her phone screen during our study breaks. At first, it was a casual detail I paid no mind to but as the weeks progressed, the frequency of his presence hardened into a terrifying pattern.",
+                "***"
+            ]
+        }
+    },
+    {
+        "pageNumber": 18,
+        "pdfPageNumber": 18,
+        "folioLabel": "11",
+        "totalNumberedPages": 122,
+        "sectionId": "chapter-one",
+        "type": "chapter-body",
+        "chapterNumberLabel": "Chapter One",
+        "chapterTitle": "The Weight of Hesitation & The Phantom Rival",
+        "runningHeader": "CHAPTER ONE · THE WEIGHT OF HESITATION & THE PHANTOM RIVAL",
+        "content": {
+            "paragraphs": [
+                "If Leon’s life in the ‘city’ was a quiet charade, his home village told a story so thick with irony it bordered on satire.",
+                "Back in his parents’ homestead, miles away from the manicured lawns he weeded, lived a young woman whom the villagers politely referred to as his ‘wife.’ She was heavily pregnant, carrying a belly so prominent it seemed to bear the entire weight of local tradition. But their union had not been born out of a romantic fairytale. There had been no soft declarations under the moonlight, no white gowns, and certainly no joy.",
+                "Njoroge had crossed paths with her during a brief visit home, left her pregnant, and attempted to slip back into the shadows as he always did. But the village elders and local men had intervened. Tired of his vanishing acts, they cornered him, invoked the unwritten laws of communal responsibility, and essentially forced him into a shotgun marriage. He was marched to his family homestead and handed a bride he had never intended to keep.",
+                "Having satisfied the elders' demand for respectability, Njoroge promptly packed his bags and fled back to the city under the guise of \"seeking employment,\" leaving his reluctant new bride to navigate her pregnancy under the sharp, watchful eyes of his mother.",
+                "Remarkably, she was not alone in that homestead.",
+                "Sharing the same mud-walled compound were two young children; children Njoroge had fathered with two entirely different women from neighboring villages. Neither of those mothers lived there; both had long since given up on Njoroge and fled, leaving their offspring behind to be raised by his aging parents. It was a bizarre, domestic museum of his past conquest; a heavily pregnant, forced wife playing stepmother to two toddlers born of two vanished women, all living under the roof of a man who was miles away, sweeping leaves in another man’s yard.",
+                "And those were merely the documented cases."
+            ]
+        }
+    },
+    {
+        "pageNumber": 19,
+        "pdfPageNumber": 19,
+        "folioLabel": "12",
+        "totalNumberedPages": 122,
+        "sectionId": "chapter-one",
+        "type": "chapter-body",
+        "chapterNumberLabel": "Chapter One",
+        "chapterTitle": "The Weight of Hesitation & The Phantom Rival",
+        "runningHeader": "CHAPTER ONE · THE WEIGHT OF HESITATION & THE PHANTOM RIVAL",
+        "content": {
+            "paragraphs": [
+                "Whispers followed Njoroge like dust kicked up by a passing bus. There were stories of other women scattered across various trading centers; abandoned mothers raising fatherless children, holding onto crumpled telephone numbers that had long ceased to connect. He was a father to many, a husband by compulsion, and a partner to no one.",
+                "***",
+                "The phone would ring as we sat together in the empty club room after hours. Gathoni’s reaction was always instantaneous, almost instinctual: a sharp intake of breath, a swift downward glance at the caller ID, and then, with a practiced, fluid motion, she would flip the phone face down onto the wooden desk. A simple, fluid motion that buried the truth beneath. I would watch the black plastic casing of the phone sitting like a small, dark tombstone between us, yet my colossal pride forbade me from digging up the body.",
+                "*Screen down.*",
+                "*Face hidden.*",
+                "*A small, deliberate motion that spoke volumes.*",
+                "Sometimes, she would excuse herself under the guise of taking an urgent call from her mother, stepping out onto the veranda and speaking in low, rhythmic hushes that drowned beneath the noise of the passing street traffic. I watched these performances with a sickening knot forming in my stomach, yet my pride bound my tongue. My ego, the very force that had driven me into this relationship, now served as my prison. *I will not act like a suspicious, desperate boy,* I told myself repeatedly, grasping at a false concept of dignity. *I am the chairperson. She chose me. I am superior to whatever distraction exists outside these gates.*"
+            ]
+        }
+    },
+    {
+        "pageNumber": 20,
+        "pdfPageNumber": 20,
+        "folioLabel": "13",
+        "totalNumberedPages": 122,
+        "sectionId": "chapter-one",
+        "type": "chapter-body",
+        "chapterNumberLabel": "Chapter One",
+        "chapterTitle": "The Weight of Hesitation & The Phantom Rival",
+        "runningHeader": "CHAPTER ONE · THE WEIGHT OF HESITATION & THE PHANTOM RIVAL",
+        "content": {
+            "paragraphs": [
+                "I disguised my cowardice as trust. I convinced myself that questioning her would make me look insecure in front of her, and more importantly, in front of the friends who were still watching our every move. So I watched the screen flip down day after day. I watched her posture stiffen whenever her phone vibrated. I saw the evidence of an intruder in our sanctuary, and I deliberately chose blindness.",
+                "*Notice.*",
+                "*Wonder.*",
+                "*Dismiss.*",
+                "*Continue.*",
+                "I was protecting my ego while my life was being dismantled piece by piece. I did not realize that while I was celebrating my status as her schoolyard boyfriend, another narrative was being written in the shadows of her life outside school; a narrative in which I was nothing more than a convenient decoy.",
+                "***",
+                "The final reckoning act did not unravel with a dramatic confrontation in front of the school body. It descended quietly, smothering, on an overcast Tuesday morning.",
+                "Gathoni arrived late. She did not walk with her usual composed stride. Her eyes were swollen, framed by dark, bruised circles of exhaustion, and her uniform was slightly rumpled. Throughout the morning lessons, she sat three rows ahead of me, staring blankly at the blackboard, entirely disconnected from the teacher's voice.",
+                "During the mid-morning break, while the rest of the school surged toward the canteen in a wave of loud noise, I approached her desk."
+            ]
+        }
+    },
+    {
+        "pageNumber": 21,
+        "pdfPageNumber": 21,
+        "folioLabel": "14",
+        "totalNumberedPages": 122,
+        "sectionId": "chapter-one",
+        "type": "chapter-body",
+        "chapterNumberLabel": "Chapter One",
+        "chapterTitle": "The Weight of Hesitation & The Phantom Rival",
+        "runningHeader": "CHAPTER ONE · THE WEIGHT OF HESITATION & THE PHANTOM RIVAL",
+        "content": {
+            "paragraphs": [
+                "“Sonnie,” I said softly, placing a hand on the corner of her wooden table. “You look ill. What is wrong?”",
+                "She did not look up. “Nothing, Gerishon. Just a headache.”",
+                "“You’ve had a headache for three days,” I pressed, feeling a cold spike of genuine dread pierce through my carefully constructed indifference. “Talk to me. We are supposed to be in this together.”",
+                "She let out a bitter, hollow laugh that sent a chill down my spine. She pulled her hands into her lap, her fingers twisting the fabric of her skirt with a desperate, rhythmic intensity. “Not here,” she whispered, her voice barely audible above the rising laughter of students in the corridor. “After the final bell. Behind the agriculture lab.”",
+                "Those hours between mid-morning and the final bell passed like a slow, agonizing fever dream. I could not focus on the equations painted across the chalkboard. I could not process the chatter of my friends who sat beside me, still making mindless jokes about our future. The world had narrowed down to a suffocating, singular point of focus: the quiet space behind the agriculture lab.",
+                "When the final bell finally shattered the silence of the afternoon, signaling the end of classes and the mass exodus toward the town, I did not wait for my friends. I bypassed the main gate and walked straight to the secluded patch of overgrown grass behind the lab walls, where the sour smell of rotting compost blended with the heavy, metallic stench of an impending rainstorm.",
+                "Gathoni was already there, leaning against the damp concrete wall, staring at her mud-stained shoes and her hands clawing at the hem of her sweater, the sky above us was a heavy, bruised purple, threatening rain. The distant noise of cars honking outside the school fence felt like sounds coming from another reality entirely."
+            ]
+        }
+    },
+    {
+        "pageNumber": 22,
+        "pdfPageNumber": 22,
+        "folioLabel": "15",
+        "totalNumberedPages": 122,
+        "sectionId": "chapter-one",
+        "type": "chapter-body",
+        "chapterNumberLabel": "Chapter One",
+        "chapterTitle": "The Weight of Hesitation & The Phantom Rival",
+        "runningHeader": "CHAPTER ONE · THE WEIGHT OF HESITATION & THE PHANTOM RIVAL",
+        "content": {
+            "paragraphs": [
+                "I walked up to her, stopping a few feet away. The distance between us felt infinite.",
+                "“Sonnie,” I began, my voice trembling despite my desperate attempt to project strength.",
+                "“Please. Look at me. Tell me what is happening.”",
+                "She slowly raised her head. The face that looked back at me was utterly ruined by grief, fear, and a terrifying, profound exhaustion. Tears were already carving clean paths through the light layer of dust on her cheeks. She did not see a savior; she saw a ghost of a chance she had missed, a casualty of a battle that had been fought and lost in his absence.",
+                "“Gerishon,” she started, her breath catching violently in her throat. “I… I can’t do this anymore. The lie is killing me.”",
+                "My heart seized. “What lie? What are you talking about?” “I never wanted to hurt you,” she sobbed, placing a hand over her mouth to muffle the sound. “You were so good to me… but you were never really there, Gerishon! You took so long! You only looked at me when your friends forced you to! And Njoroge… Njoroge was just there when I was lonely, when I was confused…”",
+                "The ground beneath my school shoes seemed to tilt dangerously. The name hit me like a physical blade, severing the last fragile threads of my denial. “What about Njoroge, Gathoni?” I demanded, stepping closer, my voice cracking under the weight of an escalating panic. “What did you do?”",
+                "She swallowed hard, her chest heaving as a fresh wave of violent tremors wracked her frame. She closed her eyes tight, as if trying to erase my presence from her sight, and forced the words out into the cold, suffocating air."
+            ]
+        }
+    },
+    {
+        "pageNumber": 23,
+        "pdfPageNumber": 23,
+        "folioLabel": "16",
+        "totalNumberedPages": 122,
+        "sectionId": "chapter-one",
+        "type": "chapter-body",
+        "chapterNumberLabel": "Chapter One",
+        "chapterTitle": "The Weight of Hesitation & The Phantom Rival",
+        "runningHeader": "CHAPTER ONE · THE WEIGHT OF HESITATION & THE PHANTOM RIVAL",
+        "content": {
+            "paragraphs": [
+                "“Gerishon… I am pregnant.”",
+                "The world did not freeze; it detonated.",
+                "I am pregnant.",
+                "The words did not register as language; they landed as an unbearable, crushing physical mass directly upon my skull. Pregnant. The mathematical impossibility of it tore through my mind with sickening velocity, through my consciousness like a jagged piece of shrapnel. I had held her hand, I had kissed her cheek, I had preserved her with a solemn, reverent discipline, and I had respected her boundaries. I had played the noble, patient boyfriend, holding back out of a foolish desire to prove my moral superiority to the very friends who had pushed me into her arms. The life inside her was not mine, it was the physical proof of my devastating mistiming, the permanent monument built upon the graveyard of my hesitation. It could never be mine. It was Njoroge’s.",
+                "I am pregnant.",
+                "The world did not merely end; it ruptured with a deafening, paradoxical roar of absolute silence. I am pregnant. The sentence was a monstrous, living entity that burst from her lips, expanding rapidly until it crushed the oxygen entirely out of his lungs. The sound detached itself from Gathoni’s lips and became an autonomous, predatory entity. It struck the damp concrete wall of the agriculture lab repeating with the terrifying cadence of an echo chamber: I am pregnant... I am pregnant… and bounced back into my ears, growing louder, sharper, multiplying exponentially.",
+                "I am pregnant.",
+                "I am pregnant.",
+                "I AM PREGNANT."
+            ]
+        }
+    },
+    {
+        "pageNumber": 24,
+        "pdfPageNumber": 24,
+        "folioLabel": "17",
+        "totalNumberedPages": 122,
+        "sectionId": "chapter-one",
+        "type": "chapter-body",
+        "chapterNumberLabel": "Chapter One",
+        "chapterTitle": "The Weight of Hesitation & The Phantom Rival",
+        "runningHeader": "CHAPTER ONE · THE WEIGHT OF HESITATION & THE PHANTOM RIVAL",
+        "content": {
+            "paragraphs": [
+                "The sky above seemed to collapse, plunging the courtyard into a terrifying, spinning vortex of gray shadows and jagged light. My chest constricted violently, locking my lungs in a vise grip; oxygen refused to enter. The ground dissolved beneath my feet, transformed into a churning, bottomless abyss.",
+                "Gathoni’s face stretched, distorted and disintegrated into a blur of weeping despair, her voice swallowed entirely by the roaring siren inside my own head. My friends' taunting laughter, the squeal of the matatu brakes outside the school gate, the flipping of the phone screen, the name Njoroge Leon Kimani, it all collided in a single, catastrophic resonance that shattered my sanity.",
+                "The roar reached an unbearable, deafening crescendo. A cold, absolute darkness rushed in from the edges of my vision, devouring the lab wall, the sky and the weeping girl before me.",
+                "My knees buckled completely, snapping beneath my weight like dead branches. I did not feel the impact of the hard, dusty earth as my body hit the ground. I only heard that single, merciless, rhythmic repetition of her confession reverberating through the hollow and void chambers of my mind, locking me forever in the agonizing realization that the worst mistakes in life are not the ones we make out of malice, as the darkness swallowed me whole.",
+                "***",
+                "To me, he was simply the name that kept flickering across Gathoni's phone screen at ungodly hours, a string of syllables followed by a frantic flick of her wrist as she turned the glowing display face down. In my naive mind, I had pictured a rival of mythical proportions. Perhaps a wealthy university senior or a charismatic city hustler whose sophistication made my quiet devotion seem small and pale."
+            ]
+        }
+    },
+    {
+        "pageNumber": 25,
+        "pdfPageNumber": 25,
+        "folioLabel": "18",
+        "totalNumberedPages": 122,
+        "sectionId": "chapter-one",
+        "type": "chapter-body",
+        "chapterNumberLabel": "Chapter One",
+        "chapterTitle": "The Weight of Hesitation & The Phantom Rival",
+        "runningHeader": "CHAPTER ONE · THE WEIGHT OF HESITATION & THE PHANTOM RIVAL",
+        "content": {
+            "paragraphs": [
+                "When the truth finally stripped away the mystery, the reality was almost comically absurd. Njoroge was a shamba boy; a manual laborer tending the lawns, hedges and flowerbeds of a private estate situated just a few streets away from Gathoni’s neighborhood. He had traveled hundreds of kilometers from his rural home to find employment in the ‘city's’ outskirts, carrying nothing more than a pair of gumboots, a panga and the humble ambitions of a man trying to survive on a meager monthly wage. To any passing observer, he was invisible; a quiet figure in dirt-stained overalls, blending seamlessly into the background of another man’s property.",
+                "Yet, behind that quiet, sunbaked exterior lived a man whose reputation moved through women’s lives like a thief in the night.",
+                "Njoroge was a phantom. He possessed a peculiar, dangerous talent for appearing in a woman’s life precisely when her guards were down, wrapping her in sudden, intense attention and then vanishing into thin air before the emotional bill arrived. He did not leave forward addresses, nor did he answer late-night questions. He simply drifted from one compound to the next, leaving behind a trail of confused hearts, broken promises and unpaid emotional debts.",
+                "The irony of the entire situation hit me with the force of a physical blow.",
+                "Here I was a young man exhausting his emotional energy, desperately trying to prove my \"masculinity\" to my peers by keeping Gathoni’s affection. I had treated our relationship like a high-stakes tournament where I had to constantly prove I was worthy, desirable and superior to any potential competitor. I had let the pressure of being \"man enough\" drive me into an agonizing state of perpetual insecurity.",
+                "And who had I been competing against?",
+                "Not a prince. Not a tycoon. But an itinerant garden hand who was currently running away from a forced marriage, three children and a"
+            ]
+        }
+    },
+    {
+        "pageNumber": 26,
+        "pdfPageNumber": 26,
+        "folioLabel": "19",
+        "totalNumberedPages": 122,
+        "sectionId": "chapter-one",
+        "type": "chapter-body",
+        "chapterNumberLabel": "Chapter One",
+        "chapterTitle": "The Weight of Hesitation & The Phantom Rival",
+        "runningHeader": "CHAPTER ONE · THE WEIGHT OF HESITATION & THE PHANTOM RIVAL",
+        "content": {
+            "paragraphs": [
+                "mountain of unresolved consequences. Njoroge had not wooed Gathoni with grand gestures, financial security, or deep emotional intelligence. He had simply walked through a door that my own insecurities and our relationship’s unspoken flaws had left wide open. He didn't offer a future; he offered an escape. And like a true phantom, he took what was offered without a second thought, completely unbothered by the wreckage he would leave behind once the thrill wore off. I had spent months tormenting myself with the question: What does Njoroge have that I don't?",
+                "The sarcastic truth was that he possessed something I was too principled to employ: a complete, unburdened lack of conscience. He moved through life without the weight of accountability. He could father children and walk away; he could take a bride by force of tradition and abandon her the next morning; he could dismantle another man's relationship and sleep peacefully on a thin mattress in a caretaker's block.",
+                "When the full picture of Njoroge Leon Kimani finally settled in my mind, the burning anger I had harbored against him slowly dissolved into a strange, bitter pity and eventually a harsh clarity.",
+                "Njoroge was not the architect of my heartbreak. He was merely the catalyst. He was a man trapped in his own cycle of cowardly escapes, running from village elders, pregnant wives and fatherless children, only to hide in the gardens of the wealthy and repeat the exact same mistakes with local girls who mistook his secrecy for mystery.",
+                "I had viewed him as a rival who had stolen my place, but the truth was far more sobering. You cannot lose a position that was truly yours, nor can a man steal a heart that refuses to be taken.",
+                "Njoroge did not destroy my relationship with Gathoni; he simply shone a harsh, unforgiving light on the cracks that were already spreading beneath the surface. He was the phantom who exposed the house built on sand."
+            ]
+        }
+    }
+]
+
+write_ts_file('server/book/manuscript/pagesCh1.ts', 'PAGES_CH1', pages_ch1)

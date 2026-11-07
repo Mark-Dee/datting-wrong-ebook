@@ -1,0 +1,216 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User account profile and entitlement status in Dating Wrong",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "Firebase Auth UID" },
+        "email": { "type": "string", "format": "email", "description": "User email automatically from Firebase Auth" },
+        "displayName": { "type": "string", "description": "Full name of the user" },
+        "phone": { "type": "string", "description": "M-PESA phone number" },
+        "role": { "type": "string", "enum": ["reader", "admin", "author"], "description": "User role" },
+        "accessStatus": { "type": "string", "enum": ["ACTIVE", "INACTIVE", "REVOKED"], "description": "Access status" },
+        "hasAccess": { "type": "boolean", "description": "Whether the user owns the digital copy of the book" },
+        "bookVersion": { "type": "number", "description": "Active licensed book version" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "lastLoginAt": { "type": "string", "format": "date-time" },
+        "lastAccessAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "email", "role", "hasAccess", "createdAt", "lastLoginAt"]
+    },
+    "Payment": {
+      "title": "Payment",
+      "description": "Comprehensive payment records with 9 security condition checks",
+      "type": "object",
+      "properties": {
+        "paymentId": { "type": "string" },
+        "uid": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "customerName": { "type": "string" },
+        "checkoutPhone": { "type": "string" },
+        "normalizedPhone": { "type": "string" },
+        "expectedAmount": { "type": "number" },
+        "receivedAmount": { "type": "number" },
+        "transactionCode": { "type": "string" },
+        "recipient": { "type": "string" },
+        "status": {
+          "type": "string",
+          "enum": [
+            "CREATED",
+            "PENDING",
+            "STK_SENT",
+            "SUCCESSFUL",
+            "VERIFIED",
+            "UNDERPAID",
+            "FAILED",
+            "REJECTED",
+            "DUPLICATE",
+            "MANUAL_REVIEW",
+            "REFUNDED"
+          ]
+        },
+        "provider": { "type": "string", "enum": ["daraja", "pasted_sms", "manual_admin"] },
+        "checkoutCreatedAt": { "type": "string", "format": "date-time" },
+        "paymentReceivedAt": { "type": "string", "format": "date-time" },
+        "verifiedAt": { "type": "string", "format": "date-time" },
+        "verificationMethod": { "type": "string" },
+        "rawReference": { "type": "string" },
+        "checkoutRequestId": { "type": "string" },
+        "merchantRequestId": { "type": "string" },
+        "securityChecksPassed": { "type": "boolean" },
+        "failureReason": { "type": "string" },
+        "adminAlertSent": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["paymentId", "uid", "email", "checkoutPhone", "expectedAmount", "status", "createdAt"]
+    },
+    "BookEntitlement": {
+      "title": "BookEntitlement",
+      "description": "Unique digital entitlement indexed by uid_bookId",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "bookId": { "type": "string" },
+        "bookVersion": { "type": "number" },
+        "status": { "type": "string", "enum": ["ACTIVE", "REVOKED", "PENDING"] },
+        "grantedAt": { "type": "string", "format": "date-time" },
+        "paymentId": { "type": "string" },
+        "transactionCode": { "type": "string" },
+        "offlineEnabled": { "type": "boolean" },
+        "authorizedDevices": { "type": "array", "items": { "type": "string" } },
+        "lastSyncedAt": { "type": "string", "format": "date-time" },
+        "watermark": { "type": "string" }
+      },
+      "required": ["uid", "bookId", "bookVersion", "status", "grantedAt", "paymentId"]
+    },
+    "UsedTransaction": {
+      "title": "UsedTransaction",
+      "description": "Unique index preventing any transaction code from unlocking multiple accounts",
+      "type": "object",
+      "properties": {
+        "transactionCode": { "type": "string" },
+        "usedForUid": { "type": "string" },
+        "paymentId": { "type": "string" },
+        "amount": { "type": "number" },
+        "usedAt": { "type": "string", "format": "date-time" },
+        "phone": { "type": "string" }
+      },
+      "required": ["transactionCode", "usedForUid", "paymentId", "amount", "usedAt"]
+    },
+    "BookConfig": {
+      "title": "BookConfig",
+      "description": "Central configuration for the book including pricing configurable by admin",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "bookPriceKes": { "type": "number", "description": "Central price in KSh" },
+        "bookPriceUsd": { "type": "number", "description": "Central price in USD" },
+        "currency": { "type": "string" },
+        "paybillNumber": { "type": "string" },
+        "accountReference": { "type": "string" },
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "updatedBy": { "type": "string" }
+      },
+      "required": ["id", "bookPriceKes", "currency", "updatedAt"]
+    },
+    "Device": {
+      "title": "Device",
+      "description": "Authorized offline reader device (maximum 2 per user)",
+      "type": "object",
+      "properties": {
+        "deviceId": { "type": "string" },
+        "userId": { "type": "string" },
+        "deviceName": { "type": "string" },
+        "platform": { "type": "string", "enum": ["desktop", "mobile", "tablet"] },
+        "authorizedAt": { "type": "string", "format": "date-time" },
+        "lastSeenAt": { "type": "string", "format": "date-time" },
+        "status": { "type": "string", "enum": ["active", "revoked"] }
+      },
+      "required": ["deviceId", "userId", "deviceName", "platform", "authorizedAt", "status"]
+    },
+    "OfflineLicense": {
+      "title": "OfflineLicense",
+      "description": "Cryptographically signed offline authorization license",
+      "type": "object",
+      "properties": {
+        "licenseId": { "type": "string" },
+        "userId": { "type": "string" },
+        "bookId": { "type": "string" },
+        "bookVersion": { "type": "number" },
+        "issuedAt": { "type": "string", "format": "date-time" },
+        "expiresAt": { "type": "string", "format": "date-time" },
+        "authorizedDeviceId": { "type": "string" },
+        "offlineEnabled": { "type": "boolean" },
+        "signature": { "type": "string" }
+      },
+      "required": ["licenseId", "userId", "bookId", "issuedAt", "expiresAt", "signature"]
+    },
+    "PaymentRequest": {
+      "title": "PaymentRequest",
+      "description": "M-PESA Pochi la Biashara SMS verification requests awaiting admin approval",
+      "type": "object",
+      "properties": {
+        "requestId": { "type": "string", "description": "Unique verification request ID" },
+        "uid": { "type": "string", "description": "Authenticated user UID" },
+        "email": { "type": "string", "format": "email", "description": "Authenticated user Google account email" },
+        "customerName": { "type": "string", "description": "Customer name" },
+        "submittedSms": { "type": "string", "description": "Raw original pasted M-PESA confirmation SMS" },
+        "transactionCode": { "type": "string", "description": "Parsed 10-character M-PESA transaction code" },
+        "amount": { "type": "number", "description": "Parsed payment amount in KES" },
+        "expectedAmount": { "type": "number", "description": "Expected book price (750 KES)" },
+        "senderPhone": { "type": "string", "description": "M-PESA sender phone number" },
+        "senderName": { "type": "string", "description": "Sender name if parsed from SMS" },
+        "recipientDetails": { "type": "string", "description": "Recipient name (Gerishon Wanyeki)" },
+        "transactionTime": { "type": "string", "description": "Transaction date and time as stated in SMS" },
+        "submittedAt": { "type": "string", "format": "date-time", "description": "Server timestamp when request was submitted" },
+        "status": { "type": "string", "enum": ["PENDING_REVIEW", "APPROVED", "REJECTED"], "description": "Approval status" },
+        "reviewedBy": { "type": "string", "description": "Email or name of administrator who reviewed" },
+        "reviewedAt": { "type": "string", "format": "date-time", "description": "Timestamp when admin approved or rejected" },
+        "rejectionReason": { "type": "string", "description": "Reason given if request was rejected" },
+        "entitlementId": { "type": "string", "description": "Active entitlement ID granted upon approval" },
+        "notifiedAdmins": { "type": "array", "items": { "type": "string" }, "description": "List of administrators notified" }
+      },
+      "required": ["requestId", "uid", "email", "submittedSms", "transactionCode", "amount", "status", "submittedAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/User" },
+      "description": "User account and profile"
+    },
+    "/payments/{paymentId}": {
+      "schema": { "$ref": "#/entities/Payment" },
+      "description": "Audit-logged payment records and Daraja verifications"
+    },
+    "/paymentRequests/{requestId}": {
+      "schema": { "$ref": "#/entities/PaymentRequest" },
+      "description": "M-PESA Pochi la Biashara SMS verification requests awaiting admin approval"
+    },
+    "/bookEntitlements/{entitlementDocId}": {
+      "schema": { "$ref": "#/entities/BookEntitlement" },
+      "description": "Book digital licenses indexed by uid_bookId"
+    },
+    "/entitlements/{entitlementId}": {
+      "schema": { "$ref": "#/entities/BookEntitlement" },
+      "description": "Reader entitlement records indexed by entitlementId and queried by userId or email"
+    },
+    "/usedTransactions/{transactionCode}": {
+      "schema": { "$ref": "#/entities/UsedTransaction" },
+      "description": "Transaction uniqueness constraint collection ensuring single-use verification"
+    },
+    "/devices/{deviceId}": {
+      "schema": { "$ref": "#/entities/Device" },
+      "description": "Authorized offline devices (max 2 per reader)"
+    },
+    "/offlineLicenses/{licenseId}": {
+      "schema": { "$ref": "#/entities/OfflineLicense" },
+      "description": "Signed offline reading licenses"
+    },
+    "/config/{configId}": {
+      "schema": { "$ref": "#/entities/BookConfig" },
+      "description": "Central pricing and merchant configurations"
+    }
+  }
+}

@@ -1,0 +1,336 @@
+import json
+
+def write_ts_file(filepath, var_name, pages):
+    code = f"import {{ BookPage }} from '../../types.ts';\n\nexport const {var_name}: BookPage[] = {json.dumps(pages, ensure_ascii=False, indent=2)};\n"
+    with open(filepath, 'w', encoding='utf-8') as f:
+        f.write(code)
+    print(f"Wrote {len(pages)} pages to {filepath}")
+
+# CHAPTER FIVE: Pages 80 to 95 (Folio 73 to 88, 16 pages)
+pages_ch5 = [
+    {
+        "pageNumber": 80,
+        "pdfPageNumber": 80,
+        "folioLabel": "73",
+        "totalNumberedPages": 122,
+        "sectionId": "chapter-five",
+        "type": "chapter-start",
+        "chapterNumberLabel": "Chapter Five",
+        "chapterTitle": "The Dream Mirror & The Blueprint of Becoming",
+        "runningHeader": "CHAPTER FIVE · THE DREAM MIRROR & THE BLUEPRINT OF BECOMING",
+        "content": {
+            "epigraph": {
+                "text": "Hope deferred maketh the heart sick: but when the desire cometh, it is a tree of life.",
+                "source": "Proverbs 13:12"
+            },
+            "paragraphs": [
+                "I was walking across campus. It was in the morning, the kind of morning that made university life seem almost beautiful. The grass was still wet from the night’s rain, and the brick paths were filled with students moving between lecture halls. Some carried books against their chests; others hurried along with headphones on, already late for class. The warm, inviting smell of black tea and freshly fried mandazi drifted across the lawn from a nearby cafeteria. I was in no hurry.",
+                "For once, I wasn’t trying to prove anything to anyone. I wasn’t looking for love. I wasn’t trying to replace anyone, nor was I trying to show an ex what she had lost. I wasn’t trying to escape the quiet weight of my own loneliness. I was simply living.",
+                "And somewhere between the library and the administration block, I noticed her. She was standing beneath a wide acacia tree, holding a notebook against her chest while talking to another student. There was nothing cinematic or dramatic about the moment. No slow-motion sequence, no sudden thunder, no internal voice declaring that my future wife had finally arrived. She was simply there.",
+                "When her conversation ended, she looked in my direction. Our eyes met briefly across the damp grass. She smiled, a genuine, unhurried expression. I smiled back. Then we both continued with our day.",
+                "That was it. No chase, no immediate obsession, no runaway fantasy. Just a quiet moment between two strangers. And strangely, that felt enough."
+            ]
+        }
+    },
+    {
+        "pageNumber": 81,
+        "pdfPageNumber": 81,
+        "folioLabel": "74",
+        "totalNumberedPages": 122,
+        "sectionId": "chapter-five",
+        "type": "chapter-body",
+        "chapterNumberLabel": "Chapter Five",
+        "chapterTitle": "The Dream Mirror & The Blueprint of Becoming",
+        "runningHeader": "CHAPTER FIVE · THE DREAM MIRROR & THE BLUEPRINT OF BECOMING",
+        "content": {
+            "paragraphs": [
+                "A few days later, I saw her again outside the main library. She was slinging a canvas bag over her shoulder as she stepped through the heavy glass doors. “Excuse me,” I said, matching her stride.",
+                "She turned, brushing a stray braid away from her face. “Hi.”\n“Hi. I think I’ve seen you around a few times.”\nShe smiled, her eyes crinkling at the corners. “You have.”\n“So I’m not imagining things.”\nShe laughed, a light, grounded sound. “No, Gerishon. You’re not.”",
+                "Hearing my name from her caught me off guard, but there was an instant ease to the interaction. No performance, no subtle posture to impress, no internal script running to ensure I said the exact right thing.",
+                "We walked together toward the main quad and introduced ourselves properly. Her name was Naomi. She was studying environmental science, a field completely separate from my own coursework. She loved reading, she was actively involved in her campus fellowship, and she possessed a sharp, perceptive sense of humor paired with a way of listening that made your words feel fully received.",
+                "We talked for nearly half an hour sitting on a stone bench. Before we parted, I asked for her number. She gave it to me without hesitation. But that was where I stopped. I didn't spend the walk back to my hostel planning our wedding in my head. I didn't text my friends to announce that I had met the woman of my dreams. I didn't measure her against Gathoni, Sabra, Sofia, or Mumbi."
+            ]
+        }
+    },
+    {
+        "pageNumber": 82,
+        "pdfPageNumber": 82,
+        "folioLabel": "75",
+        "totalNumberedPages": 122,
+        "sectionId": "chapter-five",
+        "type": "chapter-body",
+        "chapterNumberLabel": "Chapter Five",
+        "chapterTitle": "The Dream Mirror & The Blueprint of Becoming",
+        "runningHeader": "CHAPTER FIVE · THE DREAM MIRROR & THE BLUEPRINT OF BECOMING",
+        "content": {
+            "paragraphs": [
+                "I simply went home. For the first time, I allowed a person to be exactly who she was in the present, without forcing her into a pre-written story about who she ought to be in my life. Our friendship developed slowly, month by month, taking root in ordinary soil. We talked, met for tea at the student center, walked around campus, and shared study tables. Sometimes we spent hours together; other times, several days passed without contact because we both had academic deadlines and separate personal lives.",
+                "There was no unspoken demand for constant availability, no panic over unanswered messages, no neurotic expectation that affection needed to be proved every hour.",
+                "I began to notice qualities in Naomi that had nothing to do with initial physical attraction. I watched how she treated the workers in the dining hall, how she spoke about her family with a balance of respect and clear self-awareness, how she handled disappointment when a project fell through, and how she apologized directly when she made a mistake. These quiet indicators of character mattered far more to me than the frantic emotional high I had previously mistaken for love.",
+                "One afternoon, we sat beneath the same acacia tree where I had first seen her. She was reading a set of journal articles while I watched students cross the central field."
+            ]
+        }
+    },
+    {
+        "pageNumber": 83,
+        "pdfPageNumber": 83,
+        "folioLabel": "76",
+        "totalNumberedPages": 122,
+        "sectionId": "chapter-five",
+        "type": "chapter-body",
+        "chapterNumberLabel": "Chapter Five",
+        "chapterTitle": "The Dream Mirror & The Blueprint of Becoming",
+        "runningHeader": "CHAPTER FIVE · THE DREAM MIRROR & THE BLUEPRINT OF BECOMING",
+        "content": {
+            "paragraphs": [
+                "“Can I ask you something?” I said, turning to her.\nShe closed her notebook, resting it on her lap. “Of course.”\n“What are you actually looking for in a relationship?”",
+                "She paused, considering the question with characteristic seriousness. “That’s a big question for a Tuesday afternoon.”\n“I’m serious,” I said gently.",
+                "She looked out across the lawn. “I want something honest. I don't want someone to choose me because they are lonely. I don't want to be someone's rebound, or a weapon used to make another woman jealous. And I certainly don't want someone to expect me to fix emotional wounds I didn't create.”",
+                "Her words hit me with clear precision. They didn't feel restrictive; they sounded like the very hard-won lessons of my own past failures. “And you?” she asked, turning her gaze back to me. “What do you want?”",
+                "“I want a space where we can tell each other the truth,” I said, meeting her eyes. “Even when the truth is uncomfortable.”",
+                "“Especially then,” she agreed softly. “No guessing games. No silent treatments whenever there’s a disagreement.”",
+                "“And clear boundaries,” I added.",
+                "She smiled. “I like that we can articulate what we expect before we get tangled up in heavy emotions.”"
+            ]
+        }
+    },
+    {
+        "pageNumber": 84,
+        "pdfPageNumber": 84,
+        "folioLabel": "77",
+        "totalNumberedPages": 122,
+        "sectionId": "chapter-five",
+        "type": "chapter-body",
+        "chapterNumberLabel": "Chapter Five",
+        "chapterTitle": "The Dream Mirror & The Blueprint of Becoming",
+        "runningHeader": "CHAPTER FIVE · THE DREAM MIRROR & THE BLUEPRINT OF BECOMING",
+        "content": {
+            "paragraphs": [
+                "I smiled back. It was a simple conversation, yet it felt more foundational than every grand romantic declaration I had ever made in the past. I was finally internalizing a truth I had ignored for years: before you choose someone, you must take the time to know what you are actually choosing. Not the projection, not the excitement the actual person.",
+                "As our friendship deepened over the semester, my affection for Naomi grew steadily. But this time, I didn’t mistake attraction for instant compatibility, nor did I rush to secure her commitment out of insecurity. I asked myself hard, internal questions: Why do I like her? Do I know her character, or am I filling in the blanks with my own imagination? Would I still pursue this if nobody else knew about us? Do our core values actually align beyond the convenience of campus life? These questions didn't extinguish my feelings; they clarified them.",
+                "One evening, after walking back from a midweek church service, I stopped near the edge of the faculty gardens. The sky was fading into dusk, and the campus paths were quiet.",
+                "“Naomi.” She stopped and turned. “Yes?”\n“I like you. Very much.”\nShe looked at me, a small, knowing smile touching her lips. “I know, Gerishon.”\nI gave a light laugh. “Was I that obvious?”\n“You’re not as unreadable as you think.” She softened. “But I appreciate that you took your time.”"
+            ]
+        }
+    },
+    {
+        "pageNumber": 85,
+        "pdfPageNumber": 85,
+        "folioLabel": "78",
+        "totalNumberedPages": 122,
+        "sectionId": "chapter-five",
+        "type": "chapter-body",
+        "chapterNumberLabel": "Chapter Five",
+        "chapterTitle": "The Dream Mirror & The Blueprint of Becoming",
+        "runningHeader": "CHAPTER FIVE · THE DREAM MIRROR & THE BLUEPRINT OF BECOMING",
+        "content": {
+            "paragraphs": [
+                "I stepped closer, keeping my hands in my pockets. “I don’t want to play ambiguous games with you, or drift into something undefined. I want to date you intentionally.”\n“Are you sure?” she asked, looking at me with quiet inspection.",
+                "“Yes,” I said clearly. “Attraction matters, but I’m choosing to pursue this because of who you are, how you communicate, and the character I’ve observed over these past months. I don't want to pretend we’re just friends when I intend to build something more with you.”",
+                "She reached out, her fingers catching mine. “Then let's build it.”",
+                "There was no grand public display, no social media post and no frantic urgency. Just two grounded individuals making a conscious, mutual decision.",
+                "Unlike my past relationships, which felt hidden or sustained in a bubble of campus ambiguity, Naomi and I agreed early on that transparency extended beyond just the two of us. We wanted a relationship anchored in clarity, built with the open knowledge and blessing of both our families.",
+                "During the mid-term break, Naomi invited me to her family home for Sunday lunch. Sitting in her parents' living room, I didn't feel the need to posture or present an exaggerated version of myself. Her father was soft-spoken but observant, asking direct questions about my studies, my background, and my intentions. Her mother was warm, observing how Naomi and I interacted."
+            ]
+        }
+    },
+    {
+        "pageNumber": 86,
+        "pdfPageNumber": 86,
+        "folioLabel": "79",
+        "totalNumberedPages": 122,
+        "sectionId": "chapter-five",
+        "type": "chapter-body",
+        "chapterNumberLabel": "Chapter Five",
+        "chapterTitle": "The Dream Mirror & The Blueprint of Becoming",
+        "runningHeader": "CHAPTER FIVE · THE DREAM MIRROR & THE BLUEPRINT OF BECOMING",
+        "content": {
+            "paragraphs": [
+                "Instead of trying to say all the \"right\" things, I answered honestly, admitting where I was still growing, sharing my career ambitions, and stating clearly that I valued Naomi's presence in my life. By the end of the afternoon, over warm tea, her father shook my hand with genuine warmth. We weren't rushing into formal arrangements, but we were dating out in the light.",
+                "A month later, Naomi visited my home. I introduced her to my parents not as a temporary distraction or a trophy, but as someone I deeply respected. My mother noticed how Naomi listened carefully during conversations, while my father appreciated her independence and grounded faith. Knowing that both sets of parents knew about us gave our bond a quiet stability. It moved our relationship out of secret spaces and into an honorable, accountable reality.",
+                "A few weeks after we officially began dating, a familiar test presented itself. I was walking past the science complex when I saw Naomi standing near the steps with a tall male classmate from her department. They were laughing over a shared textbook, their body language relaxed and comfortable. For a sharp, immediate second, an old voice rose inside me the familiar tightening in my chest, the instinctual flash of insecurity that had governed my past relationships. *Here it goes again,* the old impulse whispered. *You're going to lose control of this.*"
+            ]
+        }
+    },
+    {
+        "pageNumber": 87,
+        "pdfPageNumber": 87,
+        "folioLabel": "80",
+        "totalNumberedPages": 122,
+        "sectionId": "chapter-five",
+        "type": "chapter-body",
+        "chapterNumberLabel": "Chapter Five",
+        "chapterTitle": "The Dream Mirror & The Blueprint of Becoming",
+        "runningHeader": "CHAPTER FIVE · THE DREAM MIRROR & THE BLUEPRINT OF BECOMING",
+        "content": {
+            "paragraphs": [
+                "I stopped, took a slow breath, and forced myself to remember. I remembered Gathoni, Sabra, Sofia, and Mumbi. I remembered how quickly unvoiced suspicion turns into quiet resentment, and how silence creates wounds out of nothing. Instead of turning away or letting bitterness fester, I walked directly over to them.",
+                "“Hi,” I said smoothly.\nNaomi turned, her face lighting up without a trace of guilt or hesitation. “Hey! Gerishon, this is David from my lab group.”",
+                "I shook his hand, greeted him politely, and engaged in a brief, pleasant conversation about their upcoming presentation. When David excused himself to head to class, I turned to Naomi. “Can I share something with you honestly?” I asked as we began walking toward the cafeteria.",
+                "She looked at me, noticing my tone. “Of course.”",
+                "“When I walked up and saw you two laughing, I felt a spike of jealousy,” I said simply, keeping my voice calm and non-accusatory. “I’m telling you because I refuse to let old insecurities turn into passive-aggressive behavior or control.”",
+                "Naomi stopped walking, studying my face. “Thank you for being direct about it instead of pulling away.” She placed a hand on my arm. “David is a good friend and a project partner, nothing more. But I respect that you brought it to me directly instead of holding it in.” We sat on the lawn and discussed boundaries, male-female friendships, and what mutual respect looked like for both of us. Neither of us shouted, neither walked away, and neither weaponized past relationships to win a point."
+            ]
+        }
+    },
+    {
+        "pageNumber": 88,
+        "pdfPageNumber": 88,
+        "folioLabel": "81",
+        "totalNumberedPages": 122,
+        "sectionId": "chapter-five",
+        "type": "chapter-body",
+        "chapterNumberLabel": "Chapter Five",
+        "chapterTitle": "The Dream Mirror & The Blueprint of Becoming",
+        "runningHeader": "CHAPTER FIVE · THE DREAM MIRROR & THE BLUEPRINT OF BECOMING",
+        "content": {
+            "paragraphs": [
+                "Walking back to my room that night, I felt a profound sense of relief. In the past, I had either exploded with possessive anger or suppressed my discomfort until it poisoned the relationship. Now, I had learned the quiet strength of clear, honest communication. The strength of our foundation and our families' involvement was truly tested during the long end-of-year holiday.",
+                "I was at home helping my family when a dusty station wagon pulled up outside our gate late one Tuesday afternoon. To my surprise, Naomi’s two older brothers stepped out, their faces pale with anxiety and exhaustion. My father welcomed them inside, and I rushed to the living room, sensing immediately that something was wrong.",
+                "\"Gerishon,\" her eldest brother, Lumumba, said, his voice tense. \"Naomi is missing. She left home yesterday morning for town and hasn't come back. Her phone has been off since yesterday evening. We didn't know where else to turn, we thought maybe she came to see you.\"",
+                "A sharp spike of worry hit my stomach, but I remained calm. The old Gerishon would have panicked, jumped to catastrophic conclusions, or felt defensive. Instead, I took a deep breath. \"She isn't here,\" I replied honestly, looking both brothers in the eye. \"We spoke yesterday morning, but she didn't mention coming this way. Let's sit down and think carefully. Did anything happen at home?\""
+            ]
+        }
+    },
+    {
+        "pageNumber": 89,
+        "pdfPageNumber": 89,
+        "folioLabel": "82",
+        "totalNumberedPages": 122,
+        "sectionId": "chapter-five",
+        "type": "chapter-body",
+        "chapterNumberLabel": "Chapter Five",
+        "chapterTitle": "The Dream Mirror & The Blueprint of Becoming",
+        "runningHeader": "CHAPTER FIVE · THE DREAM MIRROR & THE BLUEPRINT OF BECOMING",
+        "content": {
+            "paragraphs": [
+                "Lumumba admitted that Naomi and their mother had shared a sharp disagreement over her post-graduation plans the evening before she left. Hearing that, a memory clicked in my mind. Naomi had once told me about her maternal aunt, a quiet, understanding woman who lived in a neighboring town, someone Naomi often ran to whenever she needed space to clear her head. \"Have you checked with her Aunt Grace?\" I asked.",
+                "Lumumba paused, looking at his brother. \"Aunt Grace? No, we haven't spoken to her in months.\" I immediately called Aunt Grace's landline. After three rings, a woman answered. When I asked if Naomi was there, Aunt Grace sighed gently. \"She's here, Gerishon,\" Aunt Grace said softly. \"She arrived yesterday evening, exhausted and upset. Her phone battery died, and she just needed a quiet day to pray and think before calling home.\"",
+                "A collective wave of relief swept through the living room. Naomi’s brothers let out long breaths, stepping forward to thank me warmly. I didn't use the moment to lecture Naomi or play the hero. When she finally recharged her phone and called me later that night, apologizing profusely for causing panic, I listened patiently. \"I'm just glad you're safe,\" I said softly. \"Next time, even when you need space, just send a quick text so your family isn't terrified. We love you too much for that.\" She apologized sincerely, appreciating that I responded with mature concern rather than anger or control."
+            ]
+        }
+    },
+    {
+        "pageNumber": 90,
+        "pdfPageNumber": 90,
+        "folioLabel": "83",
+        "totalNumberedPages": 122,
+        "sectionId": "chapter-five",
+        "type": "chapter-body",
+        "chapterNumberLabel": "Chapter Five",
+        "chapterTitle": "The Dream Mirror & The Blueprint of Becoming",
+        "runningHeader": "CHAPTER FIVE · THE DREAM MIRROR & THE BLUEPRINT OF BECOMING",
+        "content": {
+            "paragraphs": [
+                "As our relationship matured, Naomi began to trust me with the harder parts of her story past family struggles, personal disappointments, and seasons of self-doubt. In years past, I would have immediately jumped into the role of the knight in shining armor, desperate to fix her problems to validate my own worth. But I resisted that urge entirely. I listened to her without interrupting, offering my presence rather than unsolicited solutions.",
+                "“You don’t have to carry all of that by yourself,” I told her quietly one evening after she shared a difficult memory regarding her family's financial struggles.\n“I know,” she said, looking down at her hands.\n“And you don’t have to pretend you’re entirely unaffected by it just to appear strong for me,” I added. “I’m here to support you, but I’m not here to manage your life for you.”",
+                "She looked up, her eyes bright with tears, and let out a long breath. “Thank you, Gerishon. You have no idea how rare that feels.”",
+                "That conversation clarified an essential principle: healthy love does not require you to be someone’s savior, therapist, or emotional manager. True love respects the other person's agency, encouraging their independent growth while walking beside them as a partner. I didn't need Naomi to be broken to feel useful; I wanted her whole, just as I was working to remain whole myself."
+            ]
+        }
+    },
+    {
+        "pageNumber": 91,
+        "pdfPageNumber": 91,
+        "folioLabel": "84",
+        "totalNumberedPages": 122,
+        "sectionId": "chapter-five",
+        "type": "chapter-body",
+        "chapterNumberLabel": "Chapter Five",
+        "chapterTitle": "The Dream Mirror & The Blueprint of Becoming",
+        "runningHeader": "CHAPTER FIVE · THE DREAM MIRROR & THE BLUEPRINT OF BECOMING",
+        "content": {
+            "paragraphs": [
+                "My friends quickly noticed the shift in my behavior. One evening in the hostel, as a few of us were studying, my friend Eric looked over at me with a slight smile. “Bro, you’re entirely different with Naomi,” he noted.\n“How so?” I asked, keeping my eyes on my notes.\n“You don’t talk about her like she’s a prize you won to impress anyone. You don’t bring her up just to validate yourself.”",
+                "His observation stayed with me. He was right. In my past, I had used relationships as public statements, proof to my peers that I was capable, attractive, or successful. With Naomi, the relationship belonged strictly to the two of us. My social circle didn't get to vote on her worth, nor did I seek public approval to justify my choice. I had finally learned the lesson I failed to grasp with Gathoni: a relationship built on external opinions will inevitably fall apart under external pressure.",
+                "Simultaneously, Naomi maintained her life outside of us. She had her own close friends, her own academic pursuits, her church involvement, and her personal time. I encouraged those spaces. I didn't demand to be invited to every outing, nor did I view her independent life as a threat to our bond. Trust wasn't something we demanded; it was the natural outcome of transparent living."
+            ]
+        }
+    },
+    {
+        "pageNumber": 92,
+        "pdfPageNumber": 92,
+        "folioLabel": "85",
+        "totalNumberedPages": 122,
+        "sectionId": "chapter-five",
+        "type": "chapter-body",
+        "chapterNumberLabel": "Chapter Five",
+        "chapterTitle": "The Dream Mirror & The Blueprint of Becoming",
+        "runningHeader": "CHAPTER FIVE · THE DREAM MIRROR & THE BLUEPRINT OF BECOMING",
+        "content": {
+            "paragraphs": [
+                "Compatibility did not mean an absence of conflict. Toward the end of our final year, we encountered a significant difference in our long-term aspirations. Naomi received an offer for a competitive post-graduate fellowship program located abroad, while I had secured a strong entry-level position locally that aligned with my career trajectory. The old Gerishon would have panicked either sacrificing his own path out of codependency or manipulating her to abandon her ambitions to keep the relationship comfortable. Instead, we sat down over coffee with the actual problem laid plain between us.",
+                "“Can we genuinely construct a shared future around these different trajectories?” I asked, refusing to hide behind comfortable illusions. Naomi looked at the table, her expression solemn. “I don't know, Gerishon. This fellowship is a major step for my career, and I know your job here is vital for yours.”",
+                "We spent hours analyzing the situation. We examined our long-term goals, our willingness to manage distance temporarily, our core values regarding family, and our timelines for marriage. We didn't rely on generic romantic phrases like \"love will find a way.\" We did the hard, mature work of evaluating whether our futures could align without either person harboring deep-seated resentment. Through honest compromise and intentional planning, we mapped out a practical path forward that honored her fellowship while preserving our long-term commitment. We proved that compatibility isn't about having identical paths from the start; it is the shared maturity to navigate real differences constructively."
+            ]
+        }
+    },
+    {
+        "pageNumber": 93,
+        "pdfPageNumber": 93,
+        "folioLabel": "86",
+        "totalNumberedPages": 122,
+        "sectionId": "chapter-five",
+        "type": "chapter-body",
+        "chapterNumberLabel": "Chapter Five",
+        "chapterTitle": "The Dream Mirror & The Blueprint of Becoming",
+        "runningHeader": "CHAPTER FIVE · THE DREAM MIRROR & THE BLUEPRINT OF BECOMING",
+        "content": {
+            "paragraphs": [
+                "Faith was central to both of our lives, but we stopped treating church involvement as an automatic guarantee of emotional maturity. We attended services together and prayed regularly, but we also held direct conversations about pragmatic matters: Financial management, family dynamics, career expectations, boundaries, and conflict resolution. We understood that spiritual language could easily be used to bypass hard realities. One Sunday afternoon, sitting on the bench outside the chapel, Naomi looked over at me. “Do you think we’re building this the right way?” she asked. “I believe we are,” I replied thoughtfully. “Because we aren't using faith as an excuse to avoid hard work. We're letting it inform our character, our honesty, and how we treat each other when things get difficult.” She leaned her head against my shoulder, her hand resting over mine. “That’s what gives me peace.”",
+                "Years seemed to pass with the effortless grace of a life properly ordered. We walked through the same campus grounds where we had first met. The acacia tree stood tall against the afternoon sun, the library glass reflected the golden hour light, and the rustle of leaves in the breeze felt entirely serene. Naomi looked up at me, her smile familiar and warm. “What are you thinking about?” she asked softly.",
+                "I looked at her, feeling a deep, quiet sense of fulfillment settle in my chest. “I was just reflecting on how much has changed,” I said, stepping closer to her. “I used to think finding the right person meant finding someone who would fix my life or never challenge me. Now I know it’s about two responsible people choosing to face life's realities together with total honesty.”"
+            ]
+        }
+    },
+    {
+        "pageNumber": 94,
+        "pdfPageNumber": 94,
+        "folioLabel": "87",
+        "totalNumberedPages": 122,
+        "sectionId": "chapter-five",
+        "type": "chapter-body",
+        "chapterNumberLabel": "Chapter Five",
+        "chapterTitle": "The Dream Mirror & The Blueprint of Becoming",
+        "runningHeader": "CHAPTER FIVE · THE DREAM MIRROR & THE BLUEPRINT OF BECOMING",
+        "content": {
+            "paragraphs": [
+                "She squeezed my hand, her presence solid and real. “And are you happy, Gerishon?” I smiled, looking into her eyes. “I am. For the first time in my life, I’m not fighting for love, performing for it, or afraid of losing it. I’m simply living it.”",
+                "She stepped nearer, her face framed by the warm light of the late afternoon sun. The air was calm. Everything was aligned. The confusion of my past the mistakes with Gathoni, the fundamental incompatibilities with Sabra, the emotional rebounds with Sofia, and the chaotic ambiguities with Mumbi had finally dissolved into this perfect, peaceful reality. I had learned how to communicate. I had learned how to choose. I had finally found the right relationship.",
+                "I closed my eyes briefly, soaking in the quiet perfection of the moment, holding her hand tightly against mine.",
+                "“Gerishon!” A voice cut through the stillness, sharp and persistent. “Gerishon, wake up! You’re breathing like you’re running a marathon, man.”",
+                "My eyes snapped open.",
+                "The warm afternoon sunlight vanished instantly, replaced by the dim, heavy darkness of my room. Above me was the cracked plaster of the ceiling. Across from my bed, the shadow of my roommate, Loitoilo, stood silhouetted against the weak light streaming through the curtain gap, his arm still extended from shaking my shoulder.",
+                "For several seconds, I lay completely still, my chest heaving as my breath caught in my throat. I sat up quickly, my heart hammering against my ribs. “Naomi?” I whispered into the dark room, my voice raspy and desperate.",
+                "Loitoilo clicked his tongue, reaching over to switch on his small desk lamp. The soft yellow light flooded the small room, casting long shadows against the wardrobe and desk. He squinted at me, rubbing the sleep from his eyes, a look of genuine concern mixing with irritation on his face. “Naomi who?” Loitoilo asked, sitting back on his own mattress across the narrow walkway. “Bro, you were groaning and tossing around for the last ten minutes. I thought you were having a night terror.”"
+            ]
+        }
+    },
+    {
+        "pageNumber": 95,
+        "pdfPageNumber": 95,
+        "folioLabel": "88",
+        "totalNumberedPages": 122,
+        "sectionId": "chapter-five",
+        "type": "chapter-body",
+        "chapterNumberLabel": "Chapter Five",
+        "chapterTitle": "The Dream Mirror & The Blueprint of Becoming",
+        "runningHeader": "CHAPTER FIVE · THE DREAM MIRROR & THE BLUEPRINT OF BECOMING",
+        "content": {
+            "paragraphs": [
+                "Silence stretched between us. I didn't answer him. I reached out frantically, my hand sweeping across the cool, empty bedsheets beside me. My fingers met nothing but the rough fabric of my blanket.",
+                "I reached for my phone on the nightstand. The screen illuminated the darkness with a cold, blue glare. 3:42 AM. No text messages. No missed calls. No photos saved in my gallery. No campus paths, no acacia tree, no years spent growing together.",
+                "I stared at the blank screen, then dropped my hand to look at my palm. The sensation of her hand in mine, the warmth, the weight, the touch was still fading from my nerve endings like smoke.",
+                "The realization hit me with the blunt force of a physical blow: There was no Naomi. There had been no relationship. No mature conversations about boundaries, no shared tea by the quad, no long walks after church, no joint navigation of our futures. None of it had happened.",
+                "Loitoilo watched me in silence, catching the sudden shift in my expression. “You okay, man?” he asked softly, his tone softening. “Was it a nightmare?”\n“No,” I murmured, my voice barely audible. “It wasn't a nightmare.”",
+                "“Go back to sleep, Loitoilo,” I said quietly, adjusting my posture. “I’m okay. Just… a really vivid dream.” He looked at me for a moment longer, unsure, before nodding slowly. “Alright, bro. Get some rest.” He reached out and clicked the desk lamp off, plunging the room back into shadow.",
+                "As Loitoilo turned back to his side and his breathing evened out, the initial shock began to subside, and a quiet clarity took its place. In the dream, the most significant transformation hadn't actually been Naomi. It had been me.",
+                "In that imagined world, I had stopped performing. I had stopped letting my peers dictate my choices. I had stopped using women as emotional bandages, ignoring red flags, or expecting someone else to complete what was broken inside my own heart. I had finally shown up as an emotionally mature, clear-communicating, grounded man.",
+                "I lay back down on the bed, staring up at the dark ceiling as the first faint gray light of dawn began to touch the window curtains. The ache of the illusion was still there, but beneath it lay something far more durable than a fantasy. The dream wasn't a promise of a woman who was waiting to save me. It was a blueprint of the character I needed to cultivate within myself.",
+                "Maybe the happy ending was never about finally finding the right person. Maybe it was about finally becoming the right person learning how to love, choose, communicate, and live with integrity, long before anybody else walks into the room."
+            ]
+        }
+    }
+]
+
+write_ts_file('server/book/manuscript/pagesCh5.ts', 'PAGES_CH5', pages_ch5)

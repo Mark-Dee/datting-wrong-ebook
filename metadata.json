@@ -1,0 +1,6 @@
+{
+  "name": "Dating Wrong — By Gerishon Wanyeki",
+  "description": "The official digital reading and book-purchase platform for Dating Wrong: Why We Choose the Wrong People and Repeat the Same Relationships by Gerishon Wanyeki. Published by Mark & Alvis.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
