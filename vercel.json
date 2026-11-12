@@ -9,7 +9,9 @@
   },
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api" },
-    { "source": "/((?!api/|assets/).*)", "destination": "/index.html" }
+    { "source": "/admin", "destination": "/index.html" },
+    { "source": "/read", "destination": "/index.html" },
+    { "source": "/reader", "destination": "/index.html" }
   ],
   "headers": [
     {

@@ -17,7 +17,7 @@ npm test && npm run lint
 npx vercel                 # preview deployment  -> test it
 npx vercel --prod          # production (only after you approve the preview)
 ```
-Vercel runs `npm run build` (regenerates `api/index.js`) and serves `dist/`; `/api/*` is routed to the function (`vercel.json`).
+Vercel runs `npm run build` to generate the frontend in `dist/`, deploys the checked-in `api/index.js` function bundle, and routes `/api/*` to it (`vercel.json`).
 
 ## Post-deploy checks
 - `GET /api/health` → `"storage":"firestore"` (if `"unconfigured"`, the service-account variable is missing).
