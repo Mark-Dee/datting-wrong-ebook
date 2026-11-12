@@ -383,13 +383,7 @@ export const AdminDashboardModal: React.FC<AdminDashboardModalProps> = ({
       collection(db, 'paymentRequests'),
       (snapshot) => {
         setIsRealtimeConnected(true);
-        if (snapshot.empty) {
-          setPaymentRequests([]);
-          setPochiPendingCount(0);
-          setMappedUsers([]);
-          setTotalMappedUsers(0);
-          return;
-        }
+        if (snapshot.empty) return;
 
         const liveRequests: PaymentRequestItem[] = [];
         snapshot.docs.forEach((docSnap) => {
@@ -565,17 +559,19 @@ export const AdminDashboardModal: React.FC<AdminDashboardModalProps> = ({
         setMappedUsers(approved);
         setTotalMappedUsers(approved.length);
       }
-
-      const res = await apiFetch('/api/admin/mapped-users', { headers: adminHeaders });
-      if (res.ok) {
-        const data = await res.json();
-        if (data.users && data.users.length > 0) {
-          setMappedUsers((curr) => (curr.length === 0 ? data.users : curr));
-          setTotalMappedUsers((curr) => (curr === 0 ? data.totalMappedUsers : curr));
-        }
-      }
     } catch (err) {
-      console.error('Failed to fetch mapped users:', err);
+      console.warn('Firestore mapped users read notice:', err);
+    }
+
+    try {
+      const res = await apiFetch('/api/admin/mapped-users', { headers: adminHeaders });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || `Unable to load mapped users (${res.status}).`);
+      setMappedUsers(data.users || []);
+      setTotalMappedUsers(data.totalMappedUsers ?? data.users?.length ?? 0);
+    } catch (err) {
+      console.error('Failed to fetch mapped users from admin API:', err);
+      setErrorMsg(err instanceof Error ? err.message : 'Failed to load mapped users.');
     }
   };
 
@@ -686,20 +682,21 @@ export const AdminDashboardModal: React.FC<AdminDashboardModalProps> = ({
         setPaymentRequests(liveRequests);
         setPochiPendingCount(liveRequests.filter((r) => r.status === 'PENDING_REVIEW').length);
       }
-
-      // 2. Also query backend API
-      const res = await apiFetch('/api/admin/payment-requests', { headers: adminHeaders });
-      if (res.ok) {
-        const data = await res.json();
-        if (data.requests && data.requests.length > 0) {
-          setPaymentRequests((curr) => (curr.length === 0 ? data.requests : curr));
-          if (data.counts?.pending !== undefined) {
-            setPochiPendingCount((curr) => (curr === 0 ? data.counts.pending : curr));
-          }
-        }
-      }
     } catch (err) {
-      console.error('Failed to fetch payment requests:', err);
+      console.warn('Firestore payment requests read notice:', err);
+    }
+
+    // The authenticated server API is the fallback and source of truth when
+    // direct Firestore access is unavailable to this admin session.
+    try {
+      const res = await apiFetch('/api/admin/payment-requests', { headers: adminHeaders });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || `Unable to load payment requests (${res.status}).`);
+      if (Array.isArray(data.requests)) setPaymentRequests(data.requests);
+      if (data.counts?.pending !== undefined) setPochiPendingCount(data.counts.pending);
+    } catch (err) {
+      console.error('Failed to fetch payment requests from admin API:', err);
+      setErrorMsg(err instanceof Error ? err.message : 'Failed to load payment requests.');
     }
   };
 

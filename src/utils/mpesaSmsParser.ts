@@ -74,9 +74,9 @@ export function parseMpesaSms(smsText: string): ParsedMpesaSms {
     notes.push(`Extracted amount: KES ${amount}`);
   }
 
-  // 3. Sender Phone (e.g. from PETER MWANGI 0712345678, or 2547XXXXXXXX)
+  // 3. Sender Phone (only when the SMS explicitly identifies a sender)
   let senderPhone: string | undefined;
-  const phoneRegex = /\b(07\d{8}|01\d{8}|2547\d{8}|2541\d{8}|\+2547\d{8}|\+2541\d{8})\b/;
+  const phoneRegex = /\bfrom\b[^.\n]{0,80}?\b(07\d{8}|01\d{8}|2547\d{8}|2541\d{8}|\+2547\d{8}|\+2541\d{8})\b/i;
   const phoneMatch = text.match(phoneRegex);
   if (phoneMatch) {
     senderPhone = phoneMatch[1];
@@ -213,7 +213,7 @@ export function verifyPastedMpesaSms(params: {
   });
 
   // Check 3: Phone verification
-  if (parsed.senderPhone) {
+  if (parsed.senderPhone && params.checkoutPhone) {
     const isPhoneMatching = arePhonesEqual(parsed.senderPhone, params.checkoutPhone);
     if (!isPhoneMatching) {
       checks.push({
@@ -239,11 +239,10 @@ export function verifyPastedMpesaSms(params: {
       });
     }
   } else {
-    // SMS sent from customer's perspective might say "sent to Dating Wrong" without printing their own phone
     checks.push({
       rule: 'Phone Number Correlation',
       status: 'warning',
-      message: 'Sender phone omitted in customer receipt; correlated via checkout session.',
+      message: 'Sender phone could not be matched from the SMS; administrator review is required.',
     });
   }
 

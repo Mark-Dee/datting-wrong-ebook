@@ -405,10 +405,7 @@ export function createApp(deps: AppDeps) {
         return res.status(400).json({ success: false, error: `The SMS shows KSh ${amount}, which is less than the book price of KSh ${pochi.priceKes}.` });
       }
 
-      const effectivePhone = senderPhone || parsed.extractedPhone || parsed.parsed.senderPhone;
-      if (!effectivePhone) {
-        return res.status(400).json({ success: false, error: 'Please enter the phone number you paid from.' });
-      }
+      const effectivePhone = senderPhone || parsed.extractedPhone || parsed.parsed.senderPhone || '';
       const senderName = parsed.parsed.senderName || customerName || 'Valued Reader';
 
       const result = await PaymentStore.createPaymentRequest({

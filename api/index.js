@@ -1514,7 +1514,7 @@ function parseMpesaSms(smsText) {
     notes.push(`Extracted amount: KES ${amount}`);
   }
   let senderPhone;
-  const phoneRegex = /\b(07\d{8}|01\d{8}|2547\d{8}|2541\d{8}|\+2547\d{8}|\+2541\d{8})\b/;
+  const phoneRegex = /\bfrom\b[^.\n]{0,80}?\b(07\d{8}|01\d{8}|2547\d{8}|2541\d{8}|\+2547\d{8}|\+2541\d{8})\b/i;
   const phoneMatch = text.match(phoneRegex);
   if (phoneMatch) {
     senderPhone = phoneMatch[1];
@@ -1618,7 +1618,7 @@ function verifyPastedMpesaSms(params) {
     status: "passed",
     message: `Amount KES ${parsed.amount} matches or exceeds required KES ${params.expectedAmount}.`
   });
-  if (parsed.senderPhone) {
+  if (parsed.senderPhone && params.checkoutPhone) {
     const isPhoneMatching = arePhonesEqual(parsed.senderPhone, params.checkoutPhone);
     if (!isPhoneMatching) {
       checks.push({
@@ -1647,7 +1647,7 @@ function verifyPastedMpesaSms(params) {
     checks.push({
       rule: "Phone Number Correlation",
       status: "warning",
-      message: "Sender phone omitted in customer receipt; correlated via checkout session."
+      message: "Sender phone could not be matched from the SMS; administrator review is required."
     });
   }
   if (parsed.recipient) {
@@ -6757,10 +6757,7 @@ function createApp(deps) {
       if (amount < pochi.priceKes) {
         return res.status(400).json({ success: false, error: `The SMS shows KSh ${amount}, which is less than the book price of KSh ${pochi.priceKes}.` });
       }
-      const effectivePhone = senderPhone || parsed.extractedPhone || parsed.parsed.senderPhone;
-      if (!effectivePhone) {
-        return res.status(400).json({ success: false, error: "Please enter the phone number you paid from." });
-      }
+      const effectivePhone = senderPhone || parsed.extractedPhone || parsed.parsed.senderPhone || "";
       const senderName = parsed.parsed.senderName || customerName || "Valued Reader";
       const result = await PaymentStore.createPaymentRequest({
         uid: u.uid,
